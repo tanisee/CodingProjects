@@ -1,0 +1,140 @@
+
+/*
+ * Tanisee Nagaldinne
+ * Java
+ * MineSweeper Game
+ * 
+ */
+import java.util.Scanner;
+public class MineSweeper
+{
+    public static void  main (String[] args)
+    {
+
+        System.out.println("\t\t\t\t\t**MINESWEEPER**");
+        
+        Scanner s = new Scanner(System.in);
+        System.out.println("\n\nSelect difficulty level; 1 = Easy, 2 = Medium, 3 = Hard:");
+        int difficultyLev = s.nextInt();
+        
+        int size = 0;
+        double mineDensity = 0.0;
+
+        switch (difficultyLev) {
+            case 1: 
+                size = 8;
+                mineDensity = 6;
+                break;
+            case 2: 
+                size = 10;
+                mineDensity = 5;
+                break;
+            case 3: 
+                size = 12;
+                mineDensity = 4;
+                break;
+            default:
+                System.out.println("Invalid level, defaulting to easy.");
+                size = 8;
+                mineDensity = 2;
+        }
+        
+        
+        boolean[][] values = new boolean[size][size];
+        String[][] hiddenValues = new String[size][size];
+        for(int c = 0; c < values[0].length;c++) {
+            for (int r = 0; r < values.length;r++) {
+                hiddenValues[r][c] = "[]";
+
+                System.out.print("[]\t");
+                int rand = (int)(Math.random()*mineDensity);
+                if (rand == 0) {
+                    values[r][c] = true;
+                }
+                else {
+                    values[r][c] = false;
+                }
+            }
+            System.out.println();
+        }
+
+        int points = 0;
+
+        boolean play = false;
+        while(!play) {
+            System.out.println("Pick a square by typing in 2 numbers and hitting enter after each." + 
+                "\nThe first number reffers to the row, the second to the column");
+            int row = s.nextInt();
+            while (row > size || row < 0) {
+                System.out.println("Please enter a row between 0 - "+size);
+                row = s.nextInt();
+            }
+            int col = s.nextInt();
+            while (col > size || col < 0) {
+                System.out.println("Please enter a column between 0 - " + size);
+                col = s.nextInt();
+            }
+            play = values[row][col];
+            points++;
+
+            
+            if(values[row][col] == false) {
+                revealAdjacentCells(row, col, values, hiddenValues);
+                displayStringArray(hiddenValues);
+            } else {
+                hiddenValues[row][col] = "**";
+                displayStringArray(hiddenValues);
+                int rowLengthHalf = hiddenValues.length/2;
+                for (int i = 0; i <rowLengthHalf-1; i++) {
+                    System.out.print("\t");
+                }
+                System.out.println("**GAME OVER**");
+            }
+        }
+
+        if (points == 2) {
+           System.out.println("You scored " + (points -1) + " point"); 
+        }
+        else 
+            System.out.println("You scored " + (points -1) + " points");   
+        }
+        
+        
+    
+
+    public static void displayBooleanArray(boolean[][] arr) {
+        for (int r = 0; r < arr.length; r ++) {
+            for (int c = 0; c < arr[0].length; c ++) {
+                System.out.println(arr[r][c] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void displayStringArray(String[][] arr) {
+        for (int r = 0; r < arr.length; r ++) {
+            for (int c = 0; c < arr[0].length; c ++) {
+                System.out.print(arr[r][c] + "\t");
+            }
+            System.out.println(); 
+        }
+
+    }
+
+
+    public static void revealAdjacentCells(int row, int col, boolean[][] values, String[][] hiddenValues) {
+        int mineCount = 0;
+        for (int r = -1; r <= 1; r++) {
+            for (int c = -1; c <= 1; c++) {
+                if (row + r >= 0 && row + r < values.length && col + c >= 0 && col + c < values[0].length) {
+                    if (values[row + r][col + c]) {
+                        mineCount++;
+                    }
+                }
+            }
+        }
+        hiddenValues[row][col] = String.valueOf(mineCount);
+        
+    }
+    
+}
