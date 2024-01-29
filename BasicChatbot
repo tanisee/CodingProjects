@@ -1,0 +1,838 @@
+#Author: Tanisee Nagaldinne
+# Python
+# Description: This was my final project in my Introduction to Computer Science class, where we had to create a basic chatbot that responds to the user's input as well as include comments to explain our code - I chose to impersonate my dog, Oreo!
+
+
+import random
+#this import random line helps to generate a random number to use in the program. It always needs to be at the top of of code (or at least above where it is used).
+chat = True
+while(chat==True):
+  #while(chat==True): is a while loop. A while loop keeps repeating the code in it as long as the condition is true. The reserved word 'break' in loops allows the user to break out of the loop and the program to stop running (in my program, the reserved word 'break' is activated if the user types in the keyword 'owner'). Otherwise, the while loop will keep running if the specified condition is true - in this case, at the top of the code, I assigned the variable 'chat' to be true. Since it is true, the program will keep running until the user says the keyword 'owner' to break out of the loop 
+  print("\nwoof woof! My name is Oreo, nice to meet you. If you see my owner, say the word 'owner' and I'll leave. Anyways, what is your name?")
+  name = input()
+  #this line above is having the user input something (in this case, their name) and assigns what the user inputted to a variable. 
+  if(name == "owner" or name == "Owner"):
+    #this is an if statement/conditional which means that IF something specific were to happen (in this instance it would be if the user types in the word 'owner'), then if would cause something else to happen (here, it would break out of the loop). If the if statement is activated, then the program goes to the line under the if statement, which should be indented. The indent shows that this is the result of the if statement. If that specific thing didn't happen, then the program would automatically go to the next line that is in the same indent as the if statement. The reason why it says 'or' is because it takes into account for the first letter being capital or uppercase. Or means if just one of the statements evaluates to true, then the whole statement is true.
+    print("Well it was nice talking to you! Toodleloo")
+    break
+    #these lines are an example of what would happen if the user said the keyword "owner" - the program would say bye to the user and then the reserved word 'break' goes into play. Essentially, this word stops/breaks out of the loop, causing the program to stop
+  else:
+    #this is an else statement. What it means is that if whatever specific thing the program said was going to happen, didn't happen, then it jumps to this line of code. IF this happens, ELSE that happens. (Also be sure to notice that whatever should happen if the else statement is activated is indented)
+    print("Well nice to meet you " +name+ "! So...what are your hobbies?")
+    #The reason that '+name+' is out of the quotation marks is because it is a variable. A variable should be in the quotation marks, otherwise it will just print the variable name, not what the variable is. The reason for including the '+' is to connect the variable to the text inside the quotation marks. In this case, this line would print: Well nice to meet you name that the user inputted earlier...
+  hobbies = input()
+  if(hobbies == "owner" or hobbies == "Owner"):
+    #Every time there is an input, there needs to be a condition that sees if the user has said the keyword 'owner' to break out of the loop. If there is no condition everytime and the user inputs the keyword, it won't stop the program. 
+    print("Well it was nice talking to you! Toodleloo")
+    break
+  elif(hobbies.find("soccer")>=0):
+    #elif statements are like a combination of if statements and else statements. It means that if the first thing that was supposed to happen didn't happen, then the program goes here and checks to see if this elif statement evaluates to true then it will ve activated. Essentially, it is like a specific else statement
+    #the code variable.find() tries to find if whatever is the parenthese, is in the variable. In this case, the variable is what the user inputs, and if the program FINDS the word 'soccer' in what the user inputted, then the elif statement gets activated
+    print("Soccer? Soccer ball? Ball? SQUIRRELL!!! \nsorry I tend to get distracted. Where were we? Oh right, soccer! Who's your favorite team?")
+    #everything inside the indent of the elif soccer statement will only get activated if the elif soccer statement evaluates to true (if the user types in the word soccer)
+    faveTeam = input()
+    if(faveTeam == "owner" or faveTeam == "Owner"):
+      print("Well it was nice talking to you! Toodleloo")
+      break
+    elif(faveTeam.find("NYCFC")>=0):
+      print("I love NYCFC! Let me guess who your favorite player is. Hmmm... Maximiliano Moralez? Did I guess correct?!")
+      favePlayer = input()
+      if(favePlayer == "owner" or favePlayer == "Owner"):
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+      elif(favePlayer.find("yes" or "Yes")>=0):
+        print("I knew it! Don't tell anyone, but I'm acctually a telepathic dog - just kidding! I may not be telepathic, but I am funny")
+      else:
+        print("Dang nabbit, guess im not a telepathic dog, just a talking one")
+    else:
+      print(faveTeam+ " is pretty cool")
+
+  elif(hobbies.find("art")>=0) or (hobbies.find("painting" )>=0) or (hobbies.find("drawing")>=0) or (hobbies.find("paint")>=0)or (hobbies.find("draw")>=0):
+    print("Art? I love art! My favorite artist is...myself! If you couldn't tell, I consider myself quite the professional. Who's your favorite famous artist?")
+    artist = input()
+    if(artist == "owner" or artist == "Owner"):
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+    else:
+      print("OoOoO. " +artist+ " is a good artist too")
+  
+  elif(hobbies.find("sports")>=0) or (hobbies.find("sport")>=0):
+    print("sports! Me too! I especially love running...running after the frisbee!")
+  
+  elif(hobbies.find("shopping")>=0):
+    print("Do you mean shopping for treats? I approve")
+  elif(hobbies.find("none")>=0) or (hobbies.find("nothing")>=0) or (hobbies.find("None")>=0) or (hobbies.find("Nothing")>=0):
+    print("Maybe your new hobby can be to pet me!")
+  
+  elif(hobbies.find("baking")>=0) or (hobbies.find("cooking")>=0) or (hobbies.find("eating")>=0) or (hobbies.find("bake")>=0) or (hobbies.find("cook")>=0) or (hobbies.find("food")>=0)or (hobbies.find("eat")>=0):
+    print("FOOD FOOD FOOD!!! Woof woof where! MMMM I hope it's steak! So what food do you usually make?")
+    food = input()
+    if(food == "owner" or food == "Owner"):
+      print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+      break
+    elif(food.find("bacon")>=0):
+      print("You make bacon and didn't tell me! Hand it over")
+    else:
+      print("You know what " +food+ " would be good with? BACON!!!!")
+  
+  elif(hobbies.find("coding")>=0) or (hobbies.find("com sci")>=0) or (hobbies.find("computer science")>=0) or (hobbies.find("code")>=0) or (hobbies.find("programming")>=0)or (hobbies.find("program")>=0):
+    print("That's so cool! I love to code in python")
+    print("What is your favorite language?")
+    faveLanguage = input()
+    if(faveLanguage == "owner" or faveLanguage == "Owner"):
+      print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+      break
+    print("Wowza! You should think of becoming a computer science teacher!")
+  
+  elif(hobbies.find("movie")>=0) or (hobbies.find("TV")>=0):
+    print("Movies are good - especially when there's floor popcorn to eat! What's your favorite movie or show?")
+    faveMovie = input()
+    if(faveMovie == "owner" or faveMovie == "Owner"):
+      print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+      break
+    else:
+      print("wow, " +faveMovie+ " is a good one. I am personally a fan of Superdog!")
+  
+  elif(hobbies.find("dancing")>=0) or (hobbies.find("dance")>=0):
+      print("Dancing is so much fun. Cha cha cha cha cha CHA! I am personally the tango master. Care to salsa my friend? Just kidding! I don't have my dancing shoes with me")
+  
+  else:
+    print("Wow, that's an interesting hobby, maybe I'll give it a try sometime!")
+  print("\nNow that I know a little about you, let me tell you something about me. I like paw-painting - it's like finger-painting, only cooler, I love playing frisbee and I LOVE BACON. Oh yea, and I'm a talking dog, but lets keep that part on the hush hush")
+
+
+  print("You may be wondering how I got my talking powers, so ask away - I'll try and answer to the best of my abilities. ") 
+  talkingQuestion1 = input()
+  #here, the program anticipates for possible how, why,when questions that the user could ask about powers using find statements
+  if(talkingQuestion1 == "owner" or talkingQuestion1 == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(talkingQuestion1.find("how")>=0) or (talkingQuestion1.find("Why")>=0) or (talkingQuestion1.find("why")>=0) or (talkingQuestion1.find("How")>=0):
+    print("Wooeeh, that's a complicated one. I'll just try to sum it up for you. Basically, I was with my brother Magnus, and he introduced me to his best friend, Willy Wizard. Willy loves to get silly and experiment with his powers. One day, he was trying to turn cabbage into lettuce and Magnus accidentally spilled talking potion into the brew. I then happened to wander into Willy's lab and drunk the brew- I'll admit, that was my bad, but no one tried to stop me. Poof! Just like that, I could talk. I'm just grateful I didn't turn into lettuce!")
+  elif(talkingQuestion1.find("When")>=0) or (talkingQuestion1.find("when")>=0) or (talkingQuestion1.find("always")>=0) or (talkingQuestion1.find("Always")>=0):
+    print("I got my powers when I was a little scamp - the eve of October 16th, 2010.")
+  elif(talkingQuestion1.find("like")>=0) or (talkingQuestion1.find("enjoy")>=0):
+    print("I am ever so grateful for my powers! I dont know what I would do without them")
+  elif(talkingQuestion1.find("no")>=0) or (talkingQuestion1.find("No")>=0):
+    print("That's okay, I'll still tell you about them anyways!")
+  else:
+    print("I'm not too sure about that question, but even I get confused by my powers sometimes!")
+  print("In short, my powers involve an interesting wizard and my baby brother, Magnus. Do you have any siblings?")
+
+  siblings = input()
+  if(siblings == "owner" or siblings == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(siblings.find("no")>=0) or (siblings.find("No")>=0) or (siblings.find("don")>=0) or (siblings.find("Don")>=0):
+    print("Boy, are you lucky! Magnus can get very annoying - he always steals my bacon! I mean, who in their right mind steals bacon?...but I guess I still love that little scamp")
+    print("do you have any cousins at least?")
+    cousins = input()
+    if(cousins == "owner" or cousins == "Owner"):
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break;
+    elif(cousins.find("no")>=0) or (cousins.find("No")>=0) or (cousins.find("don")>=0) or (cousins.find("Don")>=0):
+      print("I have 8 cousins! Be happy to lend you some if you ever get lonely. I wonder if there is anything we have in common?")
+    else:
+      print("same here! In fact, I have 88! Wow, we have so much in common!")
+  else:
+    print("Siblings, am I right? Magnus can get very annoying - he always steals my bacon! I mean, who in their right mind steals bacon?...but I guess I still love that little scamp")
+    
+    while True:
+      try:
+        siblingAge=int(input("how old is your oldest sibling?")) 
+      except ValueError:
+        print("Please enter a number!")
+      else:
+        break;
+    #the reason why this input statement has the letters 'int' infront of it is because it ensures that the user only types in a number as their response. The try-execpt stament keeps running until they input a number.
+    magnusAgeDifference = siblingAge - 7
+    #this is a mathematical operation. It assigns the variable 'magnusAgeDifference' the age difference between the user's sibling and Magnus'. Since Magnus is 7 years old, it has his age subtracted from the sibling's age
+    if magnusAgeDifference > 0:
+      #if the user's sibling is older than Magnus, than their age differnce will be positive (for example, if the user's sibling's age was 23, 23 - 7 would be 16) The next line would then say that the sibling is 16 years older than Magnus
+      print("Wow, your sibling is " +str(magnusAgeDifference)+ " years older than Magnus")
+      #the reason why it says 'str(magnusAgeDifference)' is because we need to concactenate the variable to a string. At the time, the variable was an integer, which means that it cannot be printed with other words/charcters. If we assign it to be a string (word/chracter sequence inside of a quote), then it will be able to print. If we dont, it will be a type error.
+    else: 
+      print("Wow, your sibling is " +str(abs(magnusAgeDifference))+ " years younger than Magnus")
+      #if the sibling is younger than Magnus, then the mathematical operation would end up in a negative number (for example, if the sibling was 3, 3 - 7 = -4). Since, we can't have the program say that the sibling is -4 years older than Magnus, we change the number to its absolute value. We do this by adding 'abs' (whch stands for absolute value) in front of the variable (as well as concatenating it to a string). Then, the program will show that the sibling is 4 years YOUNGER than Magnus
+    print("\nI never realized how much we have in common! I wonder if there is anything else?")
+
+
+  print("let's see what else we share. Say your favorite sports team in\n3\n2\n1")
+  #'\n' means that whatever is after it should go on a new line. This helps the console look tidy and avoids having to do multiple print lines after each other
+  faveSportsTeam = input()
+  if(faveSportsTeam == "owner" or faveSportsTeam == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  print("I was also thinking of " +faveSportsTeam+ "!")
+  #this piece of code basically has the user input their favorite sports team, then the program types back "I was also think of" + whatever sports team the user inputted. This ensures that the user and the chracter are "telepathic" since they were "thinking" of the same thing
+  print("Oh wow! Maybe that was just a coincidence. Let's test it out one more time\nWhat's your favorite dog breed on\n3\n2\n1")
+  faveDogBreed = input()
+  if(faveDogBreed == "owner" or faveDogBreed == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  print("My favorite dog breed is also a " +faveDogBreed+ "!!")
+  print("NO WAY! That's so crazy!!")
+  print("Now YOU ask a question and we will see if we share anything else in common. Once you type in your question, it will prompt you to also type in your answer!")
+  faveRandomQuestion = input("Question: ")
+  if(faveRandomQuestion == "owner" or faveRandomQuestion == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  faveRandomAnswer = input("Type in the answer to your question here: ")
+  if(faveRandomAnswer == "owner" or faveRandomAnswer == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  if(faveRandomQuestion == "color" or faveRandomQuestion == "Color"):
+    #the reason why these if/elif statements are underneath the line of code to where the user answers their question is to make sure the user doesn't cheat and type in the same thing the the charcater said. 
+    print("I was thinking of red")
+    faveRandomQuestionAnswer = "red"
+    #this variable (faveRandomQuestionAnswer) is just for comparison on a later line - The program says that if what the user inputted is the same as what the dog was thinking, then it will print that they are telepathic, otherwise it will print something else. The variable differs based on what the user's question is
+  elif(faveRandomQuestion.find("holiday")>=0) or (faveRandomQuestion.find("celebration")>=0) or (faveRandomQuestion.find("holiday?")>=0) or (faveRandomQuestion.find("celebration?")>=0):
+    print("Mine is easter")
+    faveRandomQuestionAnswer = "easter"
+  elif(faveRandomQuestion.find("food")>=0) or (faveRandomQuestion.find("eat")>=0) or (faveRandomQuestion.find("food?")>=0) or (faveRandomQuestion.find("eat?")>=0):
+    print("I love bacon!")
+    faveRandomQuestionAnswer = "bacon"
+  elif(faveRandomQuestion.find("hobby")>=0) or (faveRandomQuestion.find("hobbies")>=0) or (faveRandomQuestion.find("hobby?")>=0) or (faveRandomQuestion.find("hobbies?")>=0):
+    print("I love eating")
+    faveRandomQuestionAnswer = "eating"
+  elif(faveRandomQuestion.find("season")>=0) or (faveRandomQuestion.find("weather")>=0) or (faveRandomQuestion.find("season?")>=0) or (faveRandomQuestion.find("weather?")>=0):
+    print("I love sunny summer!")
+    faveRandomQuestionAnswer = "summer"
+  elif(faveRandomQuestion.find("animal")>=0) or (faveRandomQuestion.find("pet")>=0) or (faveRandomQuestion.find("animal?")>=0) or (faveRandomQuestion.find("pet?")>=0):
+    print("Definitely dogs")
+    faveRandomQuestionAnswer = "dogs"
+  elif(faveRandomQuestion.find("movie")>=0) or (faveRandomQuestion.find("watch")>=0)or (faveRandomQuestion.find("show")>=0)or (faveRandomQuestion.find("TV")>=0) or (faveRandomQuestion.find("movie?")>=0) or (faveRandomQuestion.find("watch?")>=0)or (faveRandomQuestion.find("show?")>=0)or (faveRandomQuestion.find("TV?")>=0) or (faveRandomQuestion.find("watching?")>=0) or (faveRandomQuestion.find("watching")>=0):
+    print("The Adventures of Superdog!")
+    faveRandomQuestionAnswer = "The Adventures of Superdog"
+  elif(faveRandomQuestion.find("book")>=0) or (faveRandomQuestion.find("reading")>=0) or (faveRandomQuestion.find("book?")>=0) or (faveRandomQuestion.find("reading?")>=0):
+    print("I'm a dog - I don't read!")
+    faveRandomQuestionAnswer = "none"
+  else:
+    print("Hmmmm...I'm not too sure about my answer to that one")
+    #If the user types in a question that the program doesn't have the code to answer, it will just output I'm not too sure
+    faveRandomQuestionAnswer = " "
+  if faveRandomAnswer == faveRandomQuestionAnswer:
+    print("Okay, this is getting really freaky - we were thinking of the same thing!")
+  else:
+    print("Okay, we didn't get that one the same, but we got the other two! This is getting freaky")
+  def randomResponse():
+    #this is a function - remember the line import random at the top? It is being used here. Defining the function statements (def function()) need to be above the lines where the function is being used. 
+    #this function helps generate a random response so it provides variety of responses to what the user inputted. If the randomly generated number was 1, then it will print a certain response. If the number was two, then it will print a different response, and so on.
+    #functions are helpful especially if you need to print it more than once (since it is reusable). A function needs to be coded to perform something - in this case, it's to generate a random response
+    r = random.randint(1,3)
+    #this line helps to generate the random number with the help of the import random line and assigns it to a variable. You can set the range of number inside the parenthese. In this case, the range is from 1 - 3. Below, we can see how it works. If the variable r (that contains the randomly generated number), is equal to 1, then it will have a certain response. The responses differ based on the random number. (Notice how there is a '=='? this basically means equals to. If there was just one equal sign, then that means that is the variables value)  
+    if r==1:
+      print("almost there!")
+    elif r == 2:
+      print("nope! but you got this")
+    else:
+      print("Not exactly...")
+  print("\n...do you think we're telepathic? We should test it out - I'll think of a color and you guess it")
+  colors = ["red", "blue", "green", "orange", "yellow", "pink", "white"]
+  #the variable colors is assigned to a list - you can tell if something is a list if it has bracets ('['). A list is a squence of elements seperated by commas. In this case, a list is helpful because the code ia able to pick a random element from the list and have the user try and guess it
+  print("The colors I have come up with are: " +str(colors)+ "\n\nType in another color (that is not already here) and I'll add it to the list!")
+  addColor = input()
+  colors.append(addColor)
+  #the code list.append() means that whatever is inside of the parenthese will get added to the end of the list
+  print("try and guess what I am thinking of")
+  color = random.randint(0,7)
+  print("okay, here are your options: " +str(colors)+ "\nTry and guess the color I am thinking of!")
+  colorPick = colors[color]
+  #in these lines, the program is picking a random element (hence the line color = random.randint(0,7)), and if the user guesses it, then they get it correct. The first element gets assigned the number 0, the second element gets assigned the number 1, etc...
+  colorGuess = input()
+  if(colorGuess == "owner" or  colorGuess == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  countColorGuess = 1
+  #this variable is to help count the amount of guesses. Everytime the user guesses a color, a 1 is added to this variable. At the end, the program print that it took x amount of tries to guess the color
+  while colorGuess != colorPick:
+    #this is a while loop inside another while loop. If the user doesn't guess the color correctly - which is what '!=' means (doesn't equal to), it will go back to the start of while loop and ask the user to guess again
+    randomResponse()
+    #this is where the function is being used - here it will generate a random response from the list of three responses. 
+    print("guess again")
+    colorGuess = input()
+    if(colorGuess == "owner" or colorGuess == "Owner"):
+      chat = False
+      break
+      #notice how the program doesn't print the goodbye like it does normally. Instead it assigns the variable 'chat' to be False. This is because when there is a loop inside a loop, the reserved word break only breaks out of the innermost loop. This is problematic because if the user says 'owner', it will only break out of the color guessing loop, not the entire program. 
+      #To fix this, we add a flag variable. Essentially what this does is that the reserved word break breaks out of the inner loop and assigns the variable chat to be False. Then the line right after the inner loop has an if statement. It says that if the chat is False, it should break out of the outermost loop as well. If the owner never said the word 'owner', the chat will not be false, and the program will continue as per usual
+    countColorGuess = countColorGuess + 1
+  if chat == False:
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+    #here is how the flag variable is being used and can break out of both loops.
+  print("Maybe we are telepathic! You guessed " +colorGuess+ " in " +str(countColorGuess)+ " tries")
+  
+  print("\nNow that we're telepathic, we should get to know each other better!\nDo you have any pets?")
+  pets = input()
+  if(pets == "owner" or pets == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(pets.find("Yes")>=0) or (pets.find("yes")>=0):
+    print("Pets unite! If i'm being honest, pets are the best thing to happen since sliced bread. What is your pets name?")
+    petName = input()
+    if(petName == "owner" or petName == "Owner"):
+      print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+      break
+    print(petName+ " is a cool name, not as cool as mine though!") 
+  else:
+    print("Well you should get one! Pets are amazing! If you we're to get a pet, what would you name it?")
+    potentialPetName = input()
+    if(potentialPetName == "owner" or potentialPetName == "Owner"):
+      print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+      break
+    print(potentialPetName+ " is a cool name, not as cool as mine though!")
+  print("Ok, next question. Who is your favorite singer/band")
+  faveSinger = input()
+  if(faveSinger == "owner" or faveSinger == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  print("I havent heard of " +faveSinger+ ", but they sound interesting! I enjoy the song I Will Walk That Way by the Backstreet Dogs. You are my owner, my one dogsire, believe when I bark, I will walk that way!! Thank you, thank you very much")
+  print("Let's see, if you were to live anywhere in the world, where would it be?")
+  dreamHome = input()
+  if(dreamHome == "owner" or dreamHome == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  print("I love it there! I hear " +dreamHome+ " is really nice in the summer\nMy dream home would be Baconlandia! It's a magical place deep in the heart of Treatville. It's rumored that there is unlimited amounts of bacon for everyone!\n\nOkay,now you ask a question for me about my favorite something - make sure to keep it general and don't include the question mark\n(I have already started off the question for you, you just need to finish it)\n")
+  question = input("Oreo, what is your favorite ")
+  if(question == "owner" or question == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  #these elif statements below anticipate for possible questions the user could ask and specific responses
+  elif(question.find("food")>=0) or (question.find("Food")>=0):
+    #for all these elif statements I make to to take into precaution that an answer shows up for both lowercase input or if the first letter is capital (I don't have an or statement for questionmarks unlike the last time I ask the user to input a question because I specifically asked in the instructions to not include one)
+    print("Bacon, of course! What else would it be")
+  elif(question.find("book")>=0) or (question.find("Book")>=0):
+    print("I'm a dog remember - I don't read!")
+  elif(question.find("toy")>=0) or (question.find("Treat")>=0) or (question.find("toy?")>=0) or (question.find("Treat?")>=0):
+    print("Bacon plushies filled with bacon! Duh!")
+  elif(question.find("movie")>=0) or (question.find("Movie")>=0)or (question.find("Show")>=0)or (question.find("TV")>=0) or (question.find("show")>=0) or (question.find("tv")>=0)or (question.find("Tv")>=0):
+    print("The Adventures of Superdog!")
+  elif(question.find("animal")>=0) or (question.find("pet")>=0) or(question.find("Animal")>=0) or (question.find("Pet")>=0):
+    print("Dogs, ovbiously!")
+  elif(question.find("season")>=0) or (question.find("weather")>=0) or (question.find("Season")>=0) or (question.find("Weather")>=0):
+    print("I love summer! Running in the field, paddling in the pool, everything!")
+  elif(question.find("holiday")>=0) or (question.find("celebration")>=0) or (question.find("Holiday")>=0) or (question.find("Celebration")>=0):
+    print("I love easter becuase of the bunnies to catch! Or was it eggs?")
+  elif(question.find("color")>=0) or (question.find("Color")>=0):
+    print("Red! Because that's the color of bacon. Yum yum yum!")
+  elif(question.find("athlete")>=0) or (question.find("sport")>=0)or (question.find("team")>=0)or (question.find("player")>=0) or (question.find("Athlete")>=0) or (question.find("Sport")>=0)or (question.find("Team")>=0)or (question.find("Player")>=0):
+    print("I'm a big fan of the Jamacian track team with Usain(tbernard) Bolt")
+  else:
+    #this else statement is if the user asks a question the the program isn't ready to answer
+    print("Hmmm...I'm not too sure. I'll have to get back to you on that!")
+  print("Ok, now my turn to ask you a question! What's your favorite drink?")
+  faveDrink = input()
+  if(faveDrink == "owner" or faveDrink == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  print("Sounds absolutley scrumpdiliuptious! I love love love " +faveDrink)
+  print("One last question - what's your favorite fruit?")
+  faveFruit = input()
+  if(faveFruit == "owner" or faveFruit == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  print(faveFruit+ " sounds deeeelicious. Personally, I quite enjoy dognanas")
+
+  print("you know, even though we have only known each other for a few minutes, I already feel like we are becoming BFFS! \nBut before we make our friendship official, I need to ask you something...Do you like cats? \nBefore you answer, its a simple yes or no question, but it may or may not determine our future of friendship together. So, do you like cats?\n")
+  likeCats = input()
+  if(likeCats == "owner" or likeCats == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(likeCats.find("no")>=0) or (likeCats.find("No")>=0):
+    print("OH THANK DOG! I was getting worried there for a second, phew. You are a good friend")
+  elif(likeCats.find("yes")>=0) or (likeCats.find("Yes")>=0):
+    print("WHAT THE WHAT. And to think I thought we were becoming friends. Hmf. Ill give you a chance to make it up. Remember, take your time with thise its a simple yes or no question, think about what you are saying. Do you want to side with fish-loving hair balls or the amazing blessings. I'll repeat the question, do you like cats?")
+    likeCatsReconsider = input()
+    if(likeCatsReconsider == "owner" or likeCatsReconsider == "Owner"):
+      print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+      break
+    elif(likeCatsReconsider.find("no")>=0) or (likeCatsReconsider.find("No")>=0):
+      print("OH THANK DOG! I was getting worried there for a second, phew. You are a good friend")
+    elif(likeCatsReconsider.find("yes")>=0) or (likeCatsReconsider.find("Yes")>=0):
+      cats = True
+      while cats == True:
+        #this while loop keeps bothering the user until they admit that they dont like cats by inputting the word 'no'. Essentially, it assigns the variable cat to be True, and while this variable is true, the program will keep urging the user to say no. Once they say no, the variable cat is assinged to false and the loop stops. 
+        #the only other way they can get out of this loop is if the say the key word 'owner'
+        print("I will keep bothering you until you say no. Do you like cats?")
+        botherCat = input()
+        if(botherCat == "owner" or botherCat == "Owner"):
+          chat = False
+          #Again, since there is a  loop inside of a loop, if the user says the keyword 'owner', it won't automatically break out of both loops. In order to fix this is I used a flag variable - you can see what this is and how to use it on line 247
+          break
+        elif(botherCat.find("no")>=0) or (botherCat.find("No")>=0):
+          cats = False
+          print("took you long enough.")
+      if chat == False:
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+    else:
+      print("We'll have to circle back on that one")
+  else:
+    #this else statement, as well as the one above it, is if the user types in something else other than yes or no to the question 'Do you like cats?' (for example, they may say that they don't know if they like cats and the else statement gets activated)
+    print("This is an important question, okay. I need a yes or no answer - Do you like cats?")
+    likeCats = input()
+    if(likeCats == "owner" or likeCats == "Owner"):
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break;
+    if(likeCats.find("no")>=0) or (likeCats.find("No")>=0):
+      print("OH THANK DOG! I was getting worried there for a second, phew. You are a good friend")
+    elif(likeCats.find("yes")>=0) or (likeCats.find("Yes")>=0):
+      cats = True
+      while cats == True:
+        #this while loop keeps bothering the user until they admit they don't like cats - read about the logic behind this on line 347
+        print("I will keep bothering you until you say no. Do you like cats?")
+        botherCat = input()
+        if(botherCat == "owner" or botherCat == "Owner"):
+          chat = False
+          #here is a flag variable that helps the user break out of both lines of code - read more about what this means on line 247
+          break
+        elif(botherCat.find("no")>=0) or (botherCat.find("No")>=0):
+          cats = False
+          print("took you long enough.")
+      if chat == False:
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+  
+  print("\nHey, you know what we should do - a friendship test! First question - what is MY name?")
+  nameTest = input()
+  #All the variables in the friendship test are what it is + the word Test. This helps differentiate between previous questions asked and the ones in the friendship test
+  if(nameTest == "owner" or nameTest == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(nameTest.find("Oreo")>=0) or (nameTest.find("oreo")>=0):
+    print("You're correct! I knew we're going to be good friends")
+  else:
+    print("Nope, my name is Oreo, remember? It's okay, I'm sure you'll get the next question")
+  print("Now it's my turn. Your name is " +name+ "! Am I correct?")
+  #The user should always put yes, this is correct, because it is using the name the user inputted at the beginning of the conversation
+  nameTestCorrect = input()
+  if(nameTestCorrect == "owner" or nameTestCorrect == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(nameTestCorrect.find("yes")>=0) or (nameTestCorrect.find("Yes")>=0):
+    print("Yay! I knew I would get it correct")
+  else:
+    print("Aw darn, I really thought I remembered your name correctly! Can you type it in again so I remember next time")
+    nameTestAgain = input()
+    if(nameTestAgain == "owner" or nameTestAgain == "Owner"):
+      print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+      break
+    print("You're name is " +nameTestAgain+ " - I'll be sure to remember it now")
+  print("Next question, do I have any siblings?")
+  siblingsTest = input()
+  if(siblingsTest == "owner" or siblingsTest == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(siblingsTest.find("yes")>=0) or (siblingsTest.find("Yes")>=0):
+    print("Wow, it's like we've known each other for ages!")
+  else:
+    print("Nope, I do have a sibling! I'll give you a redemption question")
+  print("What's my siblings name?")
+  siblingNameTest = input()
+  if(siblingNameTest == "owner" or siblingNameTest == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(siblingNameTest.find("magnus")>=0) or (siblingNameTest.find("Magnus")>=0):
+    print("Yes good job!")
+  else:
+    print("Nope, its acctually Magnus!")
+  print("Now my turn. You have 1 sibling??...Did I get it right?")
+  siblingTestCorrect = input()
+  #For the other question, the program should have inputted the correct name since it used previous data. Now, the program guessed that the user has 1 sibling. This guess wont change no matter what the user inputted, meaning there is a chance that the program could have "guessed" wrong
+  if(siblingTestCorrect == "owner" or siblingTestCorrect == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(siblingTestCorrect.find("yes")>=0) or (siblingTestCorrect.find("Yes")>=0):
+    print("Knew it! We are becoming such good friends!")
+  else:
+    print("Aw hot diggity dang it! I promise I'll get the next one!")
+  print("Okay, what is MY favorite band?")
+  faveBandTest = input()
+  if(faveBandTest == "owner" or faveBandTest == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(faveBandTest.find("Backstreet dogs")>=0) or (faveBandTest.find("Backstreet Dogs")>=0) or (faveBandTest.find("backstreet dogs")>=0):
+    print("Yes! You know me so well")
+  else:
+    print("Nope - its the Backstreet Dogs!")
+  print("Hmmm...I think you like listening to " +faveSinger+ "! Is that true?")
+  faveBandTestCorrect = input()
+  if(faveBandTestCorrect == "owner" or faveBandTestCorrect == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(faveBandTestCorrect.find("yes")>=0) or (faveBandTestCorrect.find("Yes")>=0):
+    print("Yay - that makes it official, we are the best of best friends")
+  else:
+    print("Aw shoot, but it's okay, we're still great friends!")
+
+
+
+  def randomJokeResponse(): 
+    #this function is going to be used later to generate a random response to what the user inputs for the joke section. Again, it uses the line import random and finds that if the randomly generated number is 1, then the variable random is assinged to a certain string. If the random number was 2, the value the variable is assigned to would be different, and so on
+    randomJoke = random.randint(1,5)
+    if randomJoke==1:
+      print("mwhahaha, I see that I have stumped you! Try again")
+    elif randomJoke == 2:
+      print("Noppity nope! but you got this")
+    elif randomJoke == 3:
+      print("you're so close, guess again")
+    elif randomJoke == 4:
+      print("Aw darn, guess my jokes are just too good. Keep guessing")
+    elif randomJoke == 5:
+      print("Not exactly...keep trying!") 
+
+
+  print("Hey, I have a great idea! Shall we play a game?")
+  game = input()
+  if(game == "owner" or game == "Owner"):
+    print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  if game == "No" or game == "no":
+    print("fineee! Hmf. How was your day today?")
+    yourDay = input()
+    if(yourDay == "owner" or yourDay == "Owner"):
+      print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+      break
+    print("Well, it could have be a whole lot better if you played the game with me. Is there anything you would like to say to me!")
+    saySorry = input()
+    if(saySorry == "owner" or saySorry == "Owner"):
+      print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+      break
+    elif(saySorry.find("Sorry")>=0) or (saySorry.find("sorry")>=0) or(saySorry.find("apologize")>=0) or (saySorry.find("Apologive")>=0) or (saySorry.find("apology")>=0) or (saySorry.find("apology")>=0) or (saySorry.find("forgive")>=0) or (saySorry.find("Forgive")>=0):
+      print("Well you should be sorry...but I forgive you, my friend!!")
+    else:
+      print("You should be saying sorry...but I still forgive you, my friend!")
+  else:
+    print("YAY! Lets see... I have two things that I have always wanted to do: \n1. tell you my amazing dog jokes\n2. You can teach me a trick!\nwhat do you want to do?(type in either 'trick' or 'joke')")
+    gameChoice = input()
+    if(gameChoice == "owner" or gameChoice == "Owner"):
+      print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+      break
+    elif(gameChoice.find("trick")>=0) or (gameChoice.find("Trick")>=0) or (gameChoice.find("tricks")>=0) or (gameChoice.find("Tricks")>=0):
+      print("Yay, I love to learn new tricks! \nThe tricks I need to learn are paw and bark. Which one do you want to teach me?")
+      trick= input()
+      if(trick == "owner" or trick == "Owner"):
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+      elif(trick.find("Bark")>=0) or (trick.find("bark")>=0):
+        print("I ussually learn tricks by copying other people. Say some   noise and I'll try to copy you")
+        noise1 = input()
+        if(noise1 == "owner" or noise1 == "Owner"):
+          print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+          break
+        print(noise1+ "yryeu? Aw dang it, I got the first part, say it one more time?")
+        noise2 = input()
+        if(noise2 == "owner" or noise2 == "Owner"):
+          print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+          break;
+        print(noise2 + "yr? " +noise2+ "y? " +noise2+ "! I think I got it, yaaaaay!")
+        for i in range(1,4):
+          #this is a for loop. What it does for each element in the range of 1 to 5 (1, 2, 3, 4, 5), it prints the variable, noise2, each time on a seperate line.
+          print(noise2)
+          print("now I know how to bark!")
+        print("Do you want to teach me paw now?")
+        paw = input()
+        if(paw == "owner" or paw == "Owner"):
+          print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+          break
+        elif(paw.find("yes")>=0) or(paw.find("Yes")>=0):
+          print("I think for this trick I need some verbal help. Lets see, I need to know what a paw is. How many fingers/pads does it have?")
+          numOfPads = input()
+          if(numOfPads == "owner" or numOfPads == "Owner"):
+            print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+            break
+          print("So it has " +str(numOfPads)+ " pads. Good to know. What color is it?")
+          padColor = input()
+          if(padColor == "owner" or padColor == "Owner"):
+            print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+            break
+          print("so " +padColor+ " color and " +str(numOfPads)+ " pads. Interesting... Now we just need a command word to tell me when to do it. Make sure the command is one word, but it can't be 'owner'. And it has to be exciting!! Okay, got the word? type it in!")
+          commandWord = input()
+          if(commandWord == "owner" or commandWord == "Owner"):
+            print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+            break
+          elif commandWord == "no" or commandWord == "No" or (commandWord.find("idk")>=0) or (commandWord.find("Idk")>=0):
+            #If the user can't come up with the command word, the program does it for them. 
+            print("ok, if you cant think of anything, I can try....ok got it! The command word is 'parrot'. Let's test out this trick - you type in the command word and I will show my paw")
+          else:
+            print("Got it! I think I'm ready. When you say " +commandWord+ " Ill show you my paw. Let's test it out")
+          pawTest = input()
+          if(pawTest == "owner" or pawTest == "Owner"):
+            print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+            break;
+          elif pawTest == commandWord or pawTest == "parrot" or pawTest == "Parrot":
+            #these print statements with the 'o's attached all combine to print a paw on the user's screen
+            print(" o    o     o")
+            print("ooo  ooo   ooo")
+            print("oooo oooo oooo")
+            print("oooooooooooooo")
+            print(" oooooooooooo")
+            print("  oooooooooo")
+            print("   ooooooo")
+            print("Oh my days, I did it! You must be a great teacher!")
+          else:
+            print("make sure you type the command word exactly how you typed it in the first time, lets try again (type the command word)")
+            pawTest = input()
+            if(pawTest == "owner" or pawTest == "Owner"):
+              print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+              break
+            elif pawTest == commandWord or pawTest == "parrot" or pawTest == "Parrot":
+              print(" o    o     o")
+              print("ooo  ooo   ooo")
+              print("oooo oooo oooo")
+              print("oooooooooooooo")
+              print(" oooooooooooo")
+              print("  oooooooooo")
+              print("   ooooooo")
+              print("Oh my days, I did it! You must be a great teacher!")
+            else:
+             print("I don't think I understood your command word, but that's okay, we can try again at a later time")
+
+        else:
+          print("that's okay, I'm still happy I learnt the bark trick!")
+        #All the comments for the tricks on the lines below (paw and bark) are above (It is the same trick above as below, but this time, if the user says they want to teach the dog how to do paw first, then bark, this is the code that will run. Whereas, the code above codes for if the user wants to do bark first then wants to do paw) 
+        if(trick.find("Paw")>=0) or (trick.find("paw")>=0):
+          print("I think for this trick I need some verbal help. Lets see, I need to know what a paw is. How many fingers/pads does it have?")
+          numOfPads = int(input())
+          if(numOfPads == "owner" or numOfPads == "Owner"):
+            print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+            break;
+          print("So it has " +str(numOfPads)+ " pads. Good to know. What color is it?")
+          padColor = input()
+          if(padColor == "owner" or padColor == "Owner"):
+            print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+            break;
+          print("so " +padColor+ " color and " +str(numOfPads)+ " pads. Interesting... Now we just need a command word to tell me when to do it. Make sure the command is one word, but it can't be 'owner' or 'no'. And it has to be exciting!! Okay, got the word? type it in!")
+          commandWord = input()
+          if(commandWord == "owner" or commandWord == "Owner"):
+            print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+            break
+          elif commandWord == "no" or commandWord == "No":
+            print("ok, if you cant think of anything, I can try....ok got it! The command word is 'parrot'. Let's test out this trick - you type in the command word and I will show my paw")
+          else:
+            print("Got it! I think Im ready. When you say " +commandWord+ " Ill show you my paw. Let's test it out")
+          pawTest = input()
+          if(pawTest == "owner" or pawTest == "Owner"):
+            print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+            break
+          elif pawTest == commandWord or pawTest == "parrot" or pawTest ==  "Parrot":
+            print(" o    o     o")
+            print("ooo  ooo   ooo")
+            print("oooo oooo oooo")
+            print("oooooooooooooo")
+            print(" oooooooooooo")
+            print("  oooooooooo")
+            print("   ooooooo")
+            print("Oh my days, I did it! You must be a great teacher! Do you want to teach me how to bark now?")
+          else:
+            print("make sure you say the command word exactly how you typed it the first time, lets try again (say the command word)")
+            pawTest = input()
+            if(pawTest == "owner" or pawTest == "Owner"):
+              print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+              break
+            elif pawTest == commandWord or pawTest == "parrot" or pawTest == "Parrot":
+              print(" o    o     o")
+              print("ooo  ooo   ooo")
+              print("oooo oooo oooo")
+              print("oooooooooooooo")
+              print(" oooooooooooo")
+              print("  oooooooooo")
+              print("   ooooooo")
+              print("Oh my days, I did it! You must be a great teacher! Do you want to teach me how to bark now?")
+            else:
+              print("I don't think I understood your command word, but that's okay, we can try again at a later time. Do you want to teach me how to bark?")
+          bark = input()
+          if(bark == "owner" or bark == "Owner"):
+            print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+            break;
+          elif(bark.find("Yes")>=0) or (bark.find("yes")>=0):
+            print("Yay, I've always wanted to be a good barker. I ussually learn tricks by copying other people. Type some noise and I'll try to copy you")
+            noise1 = input()
+            if(noise1 == "owner" or noise1 == "Owner"):
+              print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+              break;
+            print(noise1+ "yryeu? Aw dang it, I got the first part, type it one more time?")
+            noise2 = input()
+            if(noise2 == "owner" or noise2 == "Owner"):
+              print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+              break
+            print(noise2 + "yr? " +noise2+ "y? " +noise2+ "? " +noise2+ "! I think I got it, yaaaaay!")
+            for i in range(1,5):
+              #this is a for loop. What it does for each element in the range of 1 to 5 (1, 2, 3, 4, 5), it prints the variable, noise2, each on a seperate line.  
+              print(noise2)
+              print("now I know how to bark!")
+          else:
+            print("that's okay, I'm still happy I learnt the paw trick!")
+    if(gameChoice.find("Jokes")>=0) or (gameChoice.find("jokes")>=0) or (gameChoice.find("Joke")>=0) or (gameChoice.find("joke")>=0):
+      print("Yes! this is my time to shine. Ok, you ready? \nWhat kinds of markets do dogs despise?")
+      guess1 = input()
+      if(guess1 == "owner" or guess1 == "Owner"):
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+      while 1 == 1:
+        #the reason why there is a while loop here is so if the user gets the answer wrong, it jumps back to the start of the while loop and has it guess again until they get it right or say the keywords. 1 will always equal 1 so there is no way to get out of it unless those senarios (the user gets it right or says the keywords) happen
+        if(guess1.find("flea")>=0) or(guess1.find("Flea")>=0):
+          print("Aw, shucky darn, you sure are good at this guessing game! You're correct, it's a flea market")
+          break
+        else:
+          randomJokeResponse()
+          #here is where the function above is being used. It generated a random response based on a random number that the program picked, and now the random response will display. This allows a variety of responses in the program
+          print("If your not up to the challenge, then say 'give up'")
+          #the phrase 'give up' has the similar logic behind if the the user inputs 'owner'. Essentially, it jumps out of the while loop and gives the user the answer. The only difference is that this phrase only jumps out of the innermost loop, whereas the keyword 'owner' jumps out of both loops
+          guess1 = input()
+          if(guess1 == "owner" or guess1 == "Owner"):
+            chat = False
+            #here is a flag variable that allows the program to break out of both while loops - you can read about what this means on line 247
+            break
+          elif guess1 == "give up" or guess1 == "Give up" or guess1 == "Give Up":
+            print("aw, its okay. The answer was a flea market!")
+            break
+      if chat == False:
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+      print("\nI'll go a little easier on you for this one\nWhat do dogs usually like to eat at the movie theaters?")
+      guess2 = input()
+      if(guess2 == "owner" or guess2 == "Owner"):
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+      countGuess2 = 1
+      #this variable helps keep track of how many guesses the user has had - everytime the user guesses what the answer is, a 1 is added to the variable. At the end, it shows how many tries it took to guess the answer
+      while 1 == 1:
+        #here is another while loop that ensures the user keeps guessing - you can read about the logic behind it on line 666
+        if(guess2.find("pupcorn")>=0) or (guess2.find("Pup-corn")>=0)or (guess2.find("pup-corn")>=0) or(guess2.find("Pupcorn")>=0):
+          print("Are you secretly a comidian? or maybe a mind reader? Either way, you got it correct!! And in " +str(countGuess2)+ " tries" )
+          break
+        elif(guess2.find("popcorn")>=0) or (guess2.find("Popcorn")>=0):
+          print("if you really can't figure it out say 'answer'")
+          guess2 = input()
+          if(guess2 == "owner" or guess2 == "Owner"):
+            chat = False
+            #here is a flag variable that allows the program to break out of both while loops - you can read about what this means on line 247
+            break
+          countGuess2 = countGuess2 + 1
+          #Here, we can see the variable adding 1 to it since the user guessed again - read what this means on line 692
+          if guess2 == "answer" or guess2 == "Answer":
+            print("The answer was pupcorn!")
+            break
+        else:
+          randomJokeResponse()
+          print("If you still can't get it, say 'answer'")
+        guess2 = input()
+        if(guess2 == "owner" or guess2 == "Owner"):
+          chat = False
+          #here is a flag variable that allows the program to break out of both while loops - you can read about what this means on line 247
+          break
+        countGuess2 = countGuess2 + 1
+        if guess2 == "Answer" or guess2 == "answer":
+          print("The answer was pupcorn!")
+          break
+      if chat == False:
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+      print("\nAnd, ladies and gentledogs, for my final joke, ahem, what kind of dog loves to take baths?")
+      guess3 = input()
+      if(guess3 == "owner" or guess3 == "Owner"):
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+      countGuess3 = 1
+      while 1 == 1:
+        #here is another while loop that ensures the user keeps guessing - you can read about the logic behind it on line 666
+        if(guess3.find("shampoodle")>=0) or (guess3.find("Shampoodle")>=0)or (guess3.find("sham poodle")>=0) or(guess3.find("sham poodle")>=0):
+          print("Are you secretly a comidian? or maybe a mind reader? Either way, you got it correct!! And in " +str(countGuess3)+ " tries" )
+          break
+        elif(guess3.find("poodle")>=0) or (guess3.find("Poodle")>=0):
+          print("you're so close, try to be more punny with your answer (see what I did there...punny...funny...hahah) but try and guess again. If you want me to tell you, type in 'idk'")
+          guess3 = input()
+          if(guess3 == "owner" or guess3 == "Owner"):
+            chat = False
+            #here is a flag variable that allows the program to break out of both while loops - you can read about what this means on line 247
+            break
+          countGuess3 = countGuess3 + 1
+          if guess3 == "idk" or guess3 == "IDK" or guess3 == "Idk":
+            print("It's a shampoodle! Now that's a real knee slapper")
+            break
+        else:
+          randomJokeResponse()
+          print("Try and think of the different breeds. If you just want the answer type in 'idk'")
+          guess3 = input()
+          if(guess3 == "owner" or guess3 == "Owner"):
+            chat = False
+            #here is a flag variable that allows the program to break out of both while loops - you can read about what this means on line 247
+            break
+          countGuess3 = countGuess3 + 1
+          if guess3 == "idk" or guess3 == "IDK" or guess3 == "Idk":
+            print("It's a shampoodle! Now that's a real knee slapper")
+            break
+      if chat == False:
+        print("Oh, you saw my owner? I guess I have to go...but it was nice talking to you! Toodleloo")
+        break
+  def randomQuestionResponse(): 
+    #this function uses the code import random to help it generate a random response. It chooses a random number from 1 to 18. Whatever number it chooses, it has a specific response
+    randomQuestion = random.randint(1,18)
+    if randomQuestion==1:
+      print("What! And you didn't tell me this before")
+    elif randomQuestion == 2:
+      print("Well to me it sounds like you figured out the meaning of life")
+    elif randomQuestion == 3:
+      print("Mind. Blown.")
+    elif randomQuestion == 4:
+      print("No, you have to be joking!")
+    elif randomQuestion == 5:
+      print("I am flabbergasted")
+    elif randomQuestion == 6:
+      print("No. Doggin. Way")
+    elif randomQuestion == 7:
+      print("How intriguing...Remember, if you see my owner say 'owner' and I'll leave")
+    elif randomQuestion == 8:
+      print("Really?! Did not see that coming. Remember, if you see my owner say 'owner' and I'll leave")
+    elif randomQuestion == 9:
+      print("That sounds cool I guess...Remember, if you see my owner say 'owner' and I'll leave")
+    elif randomQuestion == 10:
+      print("Oh, okay then")
+    elif randomQuestion == 11:
+      print("Hmmm...interesting. Remember, if you see my owner say 'owner' and I'll leave")
+    elif randomQuestion == 12:
+      print("Wowza! You're really living the life")
+    elif randomQuestion == 13:
+      print("Cool beans!")
+    elif randomQuestion == 14:
+      print("Meh...that's not that cool, tell me more about other stuff. Remember, if you see my owner say 'owner' and I'll leave")
+    elif randomQuestion == 15:
+      print("Love that for you!")
+    elif randomQuestion == 16:
+      print("Bleh...not cool dude.")
+    elif randomQuestion == 17:
+      print("Plot Twist!")
+    elif randomQuestion == 18:
+      print("I don't believe you")
+
+  print("Hey, I think I smell my owner, that means I have to leave soon. But I'm so glad I met you and made a new BFF! Any parting words?")
+  partingWords = input()
+  if(partingWords == "owner" or partingWords == "Owner"):
+    print("Oh, my owner is calling me? I guess I have to go...but it was nice talking to you! Toodleloo")
+    break
+  elif(partingWords.find("No")>=0) or (partingWords.find("no")>=0):
+    print("That's okay...let's treasure the time we have now")
+  elif(partingWords.find("?")>=0):
+    #this searches the user's parting words for a question mark, so if they ask a question, the response is different than if they just say a statement
+    print("I'm not in the mood to answer questions right now...our farewell is too sad.")
+  else:
+    print("truer words have never been spoken")
+  print("I think my owner is arriving...but we only just got to know each other! Okay, quick tell me as much about you as possible - no questions, just facts. \n\nOnce you see my owner, type in the word 'owner', and I'll have to leave. But until then, tell me every detail about you!")
+  while 1 ==1:
+    #this while loop keeps going on forever until the user says the keyword 'owner' Otherwise, it urges the user to keep giving facts about themselves and generates random responses to it (with the use of the function)
+    detailsAboutUser = input()
+    if(detailsAboutUser == "owner" or detailsAboutUser == "Owner"):
+      chat = False
+      #here is a flag variable that helps the user break out of both lines of code - read more about what this means on line 247
+      break
+    else:
+      randomQuestionResponse()
+      #this is where the function above comes into place. Everytime the user types something, the function will be activated and a random response will pop up. The responses will be varied since there are 18 different ones to choose from
+  if chat == False:
+    print("Oh, that means I have to go. I promise that we'll meet up another time. Until then, toodleloo chum")
+    break
+#this is the end of the conversation between the user and the program and it is breaking out of the loop
+  
+
