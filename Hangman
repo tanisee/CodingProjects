@@ -1,0 +1,79 @@
+/*
+ * Tanisee Nagaldinne
+ * Java
+ * Hangman Game
+ * 
+ */
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Hangman {
+    public static void main(String[] args) {
+        
+        String[] words = {"program" ,"button", "rythm", "chartreuse", "charcuterie", "shormgasbord", "turtle", 
+            "awkward", "oxygen", "lynx", "bologna", "rutabaga", "christmas", "mitochondria", "cricket", 
+            "chessboard", "jamacia", "potpourri", "forgetful", "embarrassing", "basket", "trophy", "bobsled",
+            "dissapointed", "pamphlet", "dictionary", "mutual", "stool", "binder", "tissue", "grasp", "handle",
+        "detective", "notebook", "pencil", "futile", "vauge", "plasma", "silent"};
+        
+        boolean play = true;
+        while (play) {
+        Random random = new Random();
+        String wordToGuess = words[random.nextInt(words.length)];
+        char[] hiddenWord = new char[wordToGuess.length()];
+
+        for (int i = 0; i < wordToGuess.length(); i++) {
+            hiddenWord[i] = '_';
+        }
+
+        Scanner scanner = new Scanner(System.in);
+        int attempts = 7;
+
+        System.out.println("This is a Hangman Game! You get 7 wrong attemps.");
+
+        while (attempts > 0) {
+            System.out.print("Word to guess: ");
+            System.out.println(hiddenWord);
+            System.out.print("Guess a letter: ");
+            String guess = scanner.nextLine();
+            char guessedChar = guess.charAt(0);
+            boolean correct = false;
+
+            for (int i = 0; i < wordToGuess.length(); i++) {
+                if (wordToGuess.charAt(i) == guessedChar && hiddenWord[i] == '_') {
+                    hiddenWord[i] = guessedChar;
+                    correct = true;
+                }
+            }
+
+            if (!correct) {
+                attempts--;
+                System.out.println("Incorrect, you have " +attempts+" remaining");
+            }
+
+            if (String.valueOf(hiddenWord).equals(wordToGuess)) {
+                System.out.println("Congratulations! You've guessed the word: " + wordToGuess);
+                break;
+            }
+        }
+
+        if (attempts == 0) {
+            System.out.println("Womp Womp! Game over. The word was: " + wordToGuess);
+        }
+        System.out.println("Would you like to play again? Enter \"y\" for yes, \"n\" for no");
+        String continuePlay = scanner.next();
+        while (!(continuePlay.equals("n") || continuePlay.equals("y"))) {
+            System.out.println("Please enter \"y\" for yes, \"n\" for no");
+            continuePlay = scanner.next();
+        }
+        if (continuePlay.equals("n")) {
+            System.out.print("Thanks for playing!");
+            play = false;
+        }
+        if (continuePlay.equals("y")) {
+            System.out.println("Good luck!");
+        }
+    }
+}
+}
